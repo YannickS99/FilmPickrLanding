@@ -1,0 +1,381 @@
+/* ===== Base & Smooth Scrolling ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: white;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #080b14;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Hero Glow / Grid ===== */
+.hero-glow {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 900px;
+    max-width: 100vw;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, rgba(249, 115, 22, 0.08) 35%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.phone-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    max-width: 100vw;
+    background: radial-gradient(ellipse, rgba(236, 72, 153, 0.18) 0%, rgba(168, 85, 247, 0.10) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 420px;
+    max-width: 100vw;
+    background: radial-gradient(ellipse, rgba(249, 115, 22, 0.12) 0%, rgba(168, 85, 247, 0.06) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== Navbar Scroll State ===== */
+#navbar.scrolled {
+    background: rgba(8, 11, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Animations ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-reveal[style*="--delay"] {
+    transition-delay: calc(var(--delay, 0) * 0.1s);
+}
+
+/* ===== Swipe-Card Mockup ===== */
+.swipe-stack {
+    width: 320px;
+    height: 460px;
+    z-index: 1;
+}
+
+.movie-card {
+    position: absolute;
+    inset: 0;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(17, 24, 39, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card--back2 {
+    transform: scale(0.88) translateY(34px);
+    opacity: 0.4;
+}
+.movie-card--back1 {
+    transform: scale(0.94) translateY(16px);
+    opacity: 0.7;
+}
+.movie-card--front {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(-1.5deg); }
+}
+
+.movie-poster {
+    position: relative;
+    flex: 1;
+    border-radius: 1.25rem;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(249, 115, 22, 0.35), transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.45), transparent 55%),
+        linear-gradient(160deg, #1e1b4b 0%, #0d1120 100%);
+    overflow: hidden;
+}
+
+.poster-badge {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.65rem;
+    border-radius: 9999px;
+    background: rgba(8, 11, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.poster-rating {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(8, 11, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.movie-meta {
+    padding: 1rem 0.5rem 0.5rem;
+    text-align: left;
+}
+.movie-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.movie-sub {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin-top: 0.15rem;
+}
+.movie-tags {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.7rem;
+}
+.movie-tags span {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #d1d5db;
+}
+
+.movie-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.75rem 0 0.25rem;
+}
+.vote-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.vote-btn:hover {
+    transform: scale(1.1);
+}
+.vote-no {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f87171;
+}
+.vote-yes {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    box-shadow: 0 10px 25px -8px rgba(249, 115, 22, 0.7);
+}
+
+/* ===== Step Cards ===== */
+.step-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: background 0.4s, border-color 0.4s, transform 0.4s;
+}
+.step-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+}
+.step-num {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    background: linear-gradient(135deg, #f97316, #c026d3);
+    box-shadow: 0 10px 20px -8px rgba(192, 38, 211, 0.6);
+}
+
+/* ===== Feature Cards ===== */
+.feature-inner {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    height: 100%;
+    transition: background 0.5s, border-color 0.5s;
+}
+.feature-card:hover .feature-inner {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+.feature-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.feature-card:hover .feature-inner::before {
+    opacity: 1;
+}
+
+/* ===== Privacy Card ===== */
+.privacy-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 4rem 2rem;
+}
+.privacy-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 300px;
+    max-width: 100%;
+    background: radial-gradient(ellipse, rgba(34, 197, 94, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ===== Service Chips ===== */
+.service-chip {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #9ca3af;
+    transition: color 0.3s, transform 0.3s;
+}
+.service-chip:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ===== FAQ ===== */
+.faq-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    padding: 0 1.5rem;
+    transition: background 0.3s, border-color 0.3s;
+}
+.faq-item:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    list-style: none;
+    padding: 1.35rem 0;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+.faq-chevron {
+    flex-shrink: 0;
+    color: #9ca3af;
+    transition: transform 0.3s ease;
+}
+.faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+}
+.faq-item p {
+    padding: 0 0 1.5rem;
+    margin: 0;
+}
+
+/* ===== Spacing helpers (in case utilities are purged) ===== */
+.space-y-4 > * + * {
+    margin-top: 1rem;
+}

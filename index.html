@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmPickr – Euer Filmabend. Eine Wahl. Null Diskussion.</title>
+    <meta name="description" content="FilmPickr ist die iOS-App, mit der eure Gruppe per Swipe-Abstimmung gemeinsam den perfekten Film oder die perfekte Serie findet – lokal, ohne Account, ohne Server.">
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="fonts/inter.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body class="bg-cinema-950 text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- ===== Navbar ===== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="assets/logo.png" alt="FilmPickr Logo" class="w-10 h-10 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <span class="text-xl font-bold tracking-tight">FilmPickr</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#how" data-i18n="nav.how" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">So funktioniert's</a>
+                <a href="#features" data-i18n="nav.features" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">Funktionen</a>
+                <a href="#faq" data-i18n="nav.faq" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">FAQ</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="langToggle" class="text-sm font-semibold px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300">
+                    EN
+                </button>
+                <a href="#download" data-i18n="nav.cta" class="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-400 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-brand-500/25">
+                    Bald verfügbar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Hero ===== -->
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20">
+        <div class="hero-glow"></div>
+        <div class="grid-bg"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-8 backdrop-blur-sm fade-up">
+                <span class="w-2 h-2 bg-brand-400 rounded-full animate-pulse"></span>
+                <span class="text-sm text-gray-300" data-i18n="hero.badge">Demnächst im App Store</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-6 fade-up" style="animation-delay: 0.1s">
+                <span data-i18n="hero.title1">Euer Filmabend.</span><br>
+                <span data-i18n="hero.title2" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-pink-400 to-purple-400">
+                    Null Diskussion.
+                </span>
+            </h1>
+
+            <p data-i18n="hero.subtitle" class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed fade-up" style="animation-delay: 0.2s">
+                Findet als Gruppe per Swipe-Abstimmung gemeinsam den perfekten Film oder die perfekte Serie – direkt über euer lokales Netzwerk. Kein Account, kein Server, kein Streit.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up" style="animation-delay: 0.3s">
+                <a href="#download" class="group inline-flex items-center gap-3 bg-brand-500 hover:bg-brand-400 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-brand-500/30 hover:-translate-y-0.5">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span data-i18n="cta.main">Bald im App Store</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+                <a href="#how" class="inline-flex items-center gap-2 text-gray-400 hover:text-white font-medium px-6 py-4 transition-colors duration-300">
+                    <span data-i18n="cta.learnMore">Mehr erfahren</span>
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </a>
+            </div>
+
+            <!-- Swipe-Card Mockup -->
+            <div class="relative mt-20 fade-up flex justify-center" style="animation-delay: 0.5s">
+                <div class="phone-glow"></div>
+                <div class="swipe-stack relative">
+                    <div class="movie-card movie-card--back2"></div>
+                    <div class="movie-card movie-card--back1"></div>
+                    <div class="movie-card movie-card--front">
+                        <div class="movie-poster">
+                            <span class="poster-badge" data-i18n="mock.badge">Heute Abend</span>
+                            <div class="poster-rating">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.36 4.18a1 1 0 00.95.69h4.4c.97 0 1.37 1.24.59 1.81l-3.56 2.59a1 1 0 00-.36 1.12l1.36 4.18c.3.92-.76 1.69-1.54 1.12l-3.56-2.59a1 1 0 00-1.18 0l-3.56 2.59c-.78.57-1.84-.2-1.54-1.12l1.36-4.18a1 1 0 00-.36-1.12L2.4 9.6c-.78-.57-.38-1.81.59-1.81h4.4a1 1 0 00.95-.69l1.36-4.18z"/></svg>
+                                8.4
+                            </div>
+                        </div>
+                        <div class="movie-meta">
+                            <h3 class="movie-title">Interstellar</h3>
+                            <p class="movie-sub">2014 · Sci-Fi · 2h 49m</p>
+                            <div class="movie-tags">
+                                <span>Abenteuer</span>
+                                <span>Drama</span>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <button class="vote-btn vote-no" aria-label="Nein">
+                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                            </button>
+                            <button class="vote-btn vote-yes" aria-label="Ja">🍿</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Problem → Lösung ===== -->
+    <section class="relative py-24">
+        <div class="max-w-4xl mx-auto px-6 text-center scroll-reveal">
+            <span class="inline-block text-brand-400 text-sm font-semibold tracking-wider uppercase mb-4" data-i18n="problem.badge">Schluss mit der Endlos-Suche</span>
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                <span class="text-gray-500 italic" data-i18n="problem.q">„Was schauen wir heute?"</span><br>
+                <span data-i18n="problem.a">FilmPickr beantwortet die Frage in Minuten.</span>
+            </h2>
+            <p class="text-lg text-gray-400 leading-relaxed" data-i18n="problem.desc">
+                Endloses Scrollen durch Streaming-Kataloge, jeder hat andere Abos, niemand kann sich entscheiden. FilmPickr macht aus der Entscheidung ein kurzes, spielerisches Gruppen-Erlebnis: Jeder swipt, die App findet den gemeinsamen Nenner.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== So funktioniert's ===== -->
+    <section id="how" class="relative py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="inline-block text-brand-400 text-sm font-semibold tracking-wider uppercase mb-4 scroll-reveal" data-i18n="how.badge">So funktioniert's</span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 scroll-reveal">
+                    <span data-i18n="how.title1">Ein Code, ein Swipe,</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-pink-400" data-i18n="how.title2">ein Film für alle.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="step-card scroll-reveal" style="--delay: 0">
+                    <div class="step-num">1</div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="how.s1.title">Session erstellen</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="how.s1.desc">Ein Spieler wird Host und bekommt einen kurzen Session-Code. Kein Account, keine E-Mail.</p>
+                </div>
+                <div class="step-card scroll-reveal" style="--delay: 1">
+                    <div class="step-num">2</div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="how.s2.title">Per Code beitreten</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="how.s2.desc">Alle im selben WLAN treten mit dem Code bei – direkt über das lokale Netzwerk verbunden.</p>
+                </div>
+                <div class="step-card scroll-reveal" style="--delay: 2">
+                    <div class="step-num">3</div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="how.s3.title">Gemeinsam swipen</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="how.s3.desc">Jeder bewertet dieselben Titel: rechts „Ja", links „Nein". Schnell, fair und spielerisch.</p>
+                </div>
+                <div class="step-card scroll-reveal" style="--delay: 3">
+                    <div class="step-num">4</div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="how.s4.title">Gewinner küren</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="how.s4.desc">FilmPickr wertet alle Stimmen aus und zeigt den Gewinner plus ein Podium der Top 3.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section id="features" class="relative py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="inline-block text-brand-400 text-sm font-semibold tracking-wider uppercase mb-4 scroll-reveal" data-i18n="features.badge">Funktionen</span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 scroll-reveal">
+                    <span data-i18n="features.title1">Alles fürs perfekte</span>
+                    <br><span class="text-gray-500" data-i18n="features.title2">Filmabend-Erlebnis.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- f1 -->
+                <div class="feature-card group scroll-reveal" style="--delay: 0">
+                    <div class="feature-inner">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/15 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-7 h-7 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="features.f1.title">Sessions ohne Server</h3>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="features.f1.desc">Geräte verbinden sich direkt über das lokale Netzwerk (MultipeerConnectivity). Beitritt per kurzem Code, Live-Teilnehmerliste in der Lobby.</p>
+                    </div>
+                </div>
+                <!-- f2 -->
+                <div class="feature-card group scroll-reveal" style="--delay: 1">
+                    <div class="feature-inner">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/15 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-7 h-7 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="features.f2.title">Smarte Filter</h3>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="features.f2.desc">Region, Streamingdienste, Film oder Serie, Genres, Mindestbewertung und Erscheinungsjahr. Filter-Vorlagen speichern und wiederverwenden.</p>
+                    </div>
+                </div>
+                <!-- f3 -->
+                <div class="feature-card group scroll-reveal" style="--delay: 2">
+                    <div class="feature-inner">
+                        <div class="w-14 h-14 rounded-2xl bg-pink-500/15 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-7 h-7 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m0 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m0 0h7.5m0-9v9"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="features.f3.title">Echte Filmdaten</h3>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="features.f3.desc">Cover, Beschreibung, Bewertung, Laufzeit, Altersfreigabe und echte Streaming-Verfügbarkeit – passend zu Region und gewählten Diensten. Powered by TMDB.</p>
+                    </div>
+                </div>
+                <!-- f4 -->
+                <div class="feature-card group scroll-reveal" style="--delay: 3">
+                    <div class="feature-inner">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/15 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <span class="text-2xl">🍿</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="features.f4.title">Swipe-Abstimmung</h3>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="features.f4.desc">Moderne, gläserne Karten im Kino-Look. Wischen oder per Buttons abstimmen (Popcorn = Ja, X = Nein), mit Rückgängig-Funktion und Live-Fortschritt.</p>
+                    </div>
+                </div>
+                <!-- f5 -->
+                <div class="feature-card group scroll-reveal" style="--delay: 4">
+                    <div class="feature-inner">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-500/15 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-7 h-7 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="features.f5.title">Ergebnis-Erlebnis</h3>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="features.f5.desc">Animierte Enthüllung des Gewinners mit Glow-Effekt, ein Podium der Top 3 und ein kreatives Popcorn-Voting-Meter.</p>
+                    </div>
+                </div>
+                <!-- f6 -->
+                <div class="feature-card group scroll-reveal" style="--delay: 5">
+                    <div class="feature-inner">
+                        <div class="w-14 h-14 rounded-2xl bg-sky-500/15 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-7 h-7 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="features.f6.title">Verlauf & Detailseiten</h3>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="features.f6.desc">Ausführliche Detailseiten zu jedem Titel und ein Verlauf vergangener Sessions inkl. Gewinner, Datum und Teilnehmern.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Privacy ===== -->
+    <section class="relative py-28">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="privacy-card scroll-reveal">
+                <div class="privacy-glow"></div>
+                <div class="relative z-10 text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-green-500/15 flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+                    </div>
+                    <span class="inline-block text-green-400 text-sm font-semibold tracking-wider uppercase mb-4" data-i18n="privacy.badge">Privacy-first</span>
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6" data-i18n="privacy.title">Kein Account. Kein Server. Kein Tracking.</h2>
+                    <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto" data-i18n="privacy.desc">
+                        Es gibt keine Registrierung und kein Nutzerkonto. Profil, Vorlagen und Verlauf bleiben lokal auf dem Gerät, die Kommunikation läuft direkt Peer-to-Peer im lokalen Netzwerk. Filmdaten stammen von TMDB.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Streaming services ===== -->
+    <section class="relative py-20 border-y border-white/5">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-8 scroll-reveal" data-i18n="services.title">Berücksichtigt echte Verfügbarkeit auf euren Diensten</p>
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 scroll-reveal">
+                <span class="service-chip">Netflix</span>
+                <span class="service-chip">Prime Video</span>
+                <span class="service-chip">Disney+</span>
+                <span class="service-chip">Apple TV+</span>
+                <span class="service-chip">Joyn</span>
+                <span class="service-chip">RTL+</span>
+                <span class="service-chip">WOW</span>
+                <span class="service-chip">MUBI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="relative py-28">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block text-brand-400 text-sm font-semibold tracking-wider uppercase mb-4 scroll-reveal" data-i18n="faq.badge">FAQ</span>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight scroll-reveal" data-i18n="faq.title">Häufige Fragen</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="faq-item scroll-reveal">
+                    <summary>
+                        <span data-i18n="faq.q1">Brauche ich ein Konto?</span>
+                        <svg class="faq-chevron w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="faq.a1">Nein. FilmPickr funktioniert komplett ohne Registrierung. Beim ersten Start wählst du nur einen Anzeigenamen – keine E-Mail, kein Passwort, kein Konto.</p>
+                </details>
+                <details class="faq-item scroll-reveal">
+                    <summary>
+                        <span data-i18n="faq.q2">Müssen alle im selben WLAN sein?</span>
+                        <svg class="faq-chevron w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="faq.a2">Ja. Die Geräte verbinden sich direkt über das lokale Netzwerk per MultipeerConnectivity – ideal fürs gemeinsame Sofa. Es läuft nichts über einen Server in der Cloud.</p>
+                </details>
+                <details class="faq-item scroll-reveal">
+                    <summary>
+                        <span data-i18n="faq.q3">Welche Streamingdienste werden unterstützt?</span>
+                        <svg class="faq-chevron w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="faq.a3">Netflix, Prime Video, Disney+, Apple TV+, Joyn, RTL+, WOW, MUBI und weitere. FilmPickr zeigt nur Titel, die auf den gewählten Abos in eurer Region verfügbar sind.</p>
+                </details>
+                <details class="faq-item scroll-reveal">
+                    <summary>
+                        <span data-i18n="faq.q4">Was kostet die App?</span>
+                        <svg class="faq-chevron w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="faq.a4">FilmPickr erscheint demnächst im App Store. Folge uns auf Social Media, um zum Launch als Erstes informiert zu werden.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Download CTA ===== -->
+    <section id="download" class="relative py-28">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="relative">
+                <div class="cta-glow"></div>
+                <div class="relative bg-white/[0.03] border border-white/[0.06] rounded-[2rem] p-12 md:p-20 scroll-reveal">
+                    <img src="assets/logo.png" alt="FilmPickr" class="w-20 h-20 rounded-2xl mx-auto mb-8 shadow-lg">
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4" data-i18n="download.title">Demnächst verfügbar.</h2>
+                    <p class="text-lg text-gray-400 max-w-lg mx-auto mb-10" data-i18n="download.desc">FilmPickr kommt bald in den App Store. Macht euren nächsten Filmabend zum Erlebnis.</p>
+                    <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 text-gray-300 font-semibold px-8 py-4 rounded-full">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        <span data-i18n="download.btn">Bald im App Store</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer (gleicher Aufbau wie Monetheus) ===== -->
+    <footer class="border-t border-white/[0.06] py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+
+                <!-- LEFT: Copyright -->
+                <div class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="FilmPickr" class="w-8 h-8 rounded-lg">
+                    <span class="text-sm text-gray-500">
+                        &copy; 2026 FilmPickr.
+                        <span data-i18n="footer.rights">Alle Rechte vorbehalten.</span>
+                    </span>
+                </div>
+
+                <!-- CENTER: Social -->
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-xs text-gray-600 uppercase tracking-widest font-semibold">
+                        Social
+                    </span>
+                    <div class="flex items-center gap-4">
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/filmpickr.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        class="text-gray-500 hover:text-gray-300 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@filmpickr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="TikTok"
+                        class="text-gray-500 hover:text-gray-300 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.195V2h-3.193v13.766c0 1.548-1.26 2.809-2.809 2.809a2.81 2.81 0 0 1-2.809-2.809 2.81 2.81 0 0 1 2.809-2.809c.286 0 .56.043.819.123V9.821a6.002 6.002 0 0 0-.819-.057A6.004 6.004 0 0 0 3.81 15.77a6.004 6.004 0 0 0 6.007 6.006 6.004 6.004 0 0 0 6.006-6.006V8.792a7.978 7.978 0 0 0 4.767 1.576V7.175a4.76 4.76 0 0 1-1.001-.489z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Legal -->
+                <div class="flex items-center gap-6">
+                    <a href="https://privacy.schrotech.de"
+                    class="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+                    data-i18n="footer.privacy">Datenschutz</a>
+                    <a href="https://imprint.schrotech.de"
+                    class="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+                    data-i18n="footer.legal">Impressum</a>
+                </div>
+            </div>
+
+            <!-- TMDB Attribution -->
+            <div class="mt-10 pt-8 border-t border-white/[0.04] text-center">
+                <p class="text-xs text-gray-600 max-w-2xl mx-auto leading-relaxed" data-i18n="footer.tmdb">
+                    Powered by TMDB. Dieses Produkt verwendet die TMDB API, ist aber nicht von TMDB unterstützt oder zertifiziert.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="functions.js"></script>
+</body>
+</html>
